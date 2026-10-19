@@ -1,5 +1,7 @@
 # Horde Protocol
 
+Copyright © IAmAliceee. All rights reserved. No AI training This repository is licensed for viewing only (see LICENSE for details). Do not use any content of this repo for AI/ML training, tuning, or evaluation.
+
 Class template for Advanced Unity 3/4 (S1 teaching vehicle). This remote is **read-only for students**. Fork it and work on your own fork. Do not push here.
 
 This is **not** a playable horde game. The Hello scene exists so that open → Play works, with no red errors in the console.
