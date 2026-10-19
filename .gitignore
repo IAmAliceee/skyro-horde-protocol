@@ -31,6 +31,8 @@
 
 # Visual Studio cache directory
 .vs/
+# Added VSCode since it's my primary IDE
+.vscode/
 
 # Gradle cache directory
 .gradle/
