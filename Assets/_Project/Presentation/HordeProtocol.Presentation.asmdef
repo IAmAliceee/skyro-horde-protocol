@@ -2,8 +2,9 @@
     "name": "HordeProtocol.Presentation",
     "rootNamespace": "HordeProtocol.Presentation",
     "references": [
-        "HordeProtocol.Gameplay",
-        "HordeProtocol.Data"
+        "GUID:4821138db8b074c36b15391b6d1db026",
+        "GUID:dc4538eafbd6c4b11a81953fa37c8d8f",
+        "GUID:f9fd2c85b8a22fbd98a672f5b9333e0a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

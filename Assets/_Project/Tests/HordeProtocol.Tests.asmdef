@@ -2,10 +2,11 @@
     "name": "HordeProtocol.Tests",
     "rootNamespace": "HordeProtocol.Tests",
     "references": [
-        "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner",
-        "HordeProtocol.Gameplay",
-        "HordeProtocol.Data"
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:0acc523941302664db1f4e527237feb3",
+        "GUID:4821138db8b074c36b15391b6d1db026",
+        "GUID:dc4538eafbd6c4b11a81953fa37c8d8f",
+        "GUID:f9fd2c85b8a22fbd98a672f5b9333e0a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,7 +1,9 @@
 {
     "name": "HordeProtocol.Data",
     "rootNamespace": "HordeProtocol.Data",
-    "references": [],
+    "references": [
+        "GUID:f9fd2c85b8a22fbd98a672f5b9333e0a"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -2,8 +2,9 @@
     "name": "HordeProtocol.Gameplay",
     "rootNamespace": "HordeProtocol.Gameplay",
     "references": [
-        "HordeProtocol.Data",
-        "Unity.InputSystem"
+        "GUID:dc4538eafbd6c4b11a81953fa37c8d8f",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:f9fd2c85b8a22fbd98a672f5b9333e0a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
