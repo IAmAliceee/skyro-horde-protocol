@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-439473913027289095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5187c14ea96231e825c458b2256cb6, type: 3}
+  m_Name: PlayerTag
+  m_EditorClassIdentifier: AliceTools::AliceTools.Variables.StringVariable
+  <IsReadOnly>k__BackingField: 1
+  _value: Player
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf5a711a58c73c47b400eabe5bdd0ab, type: 3}
+  m_Name: Tags
+  m_EditorClassIdentifier: AliceTools::AliceTools.Variables.GlobalVariables
+  variableType:
+    assemblyQualifiedName: AliceTools.Variables.StringVariable, AliceTools, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  variables:
+  - {fileID: 7894475745764355504}
+  - {fileID: -439473913027289095}
+--- !u!114 &7894475745764355504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5187c14ea96231e825c458b2256cb6, type: 3}
+  m_Name: EnemyTag
+  m_EditorClassIdentifier: AliceTools::AliceTools.Variables.StringVariable
+  <IsReadOnly>k__BackingField: 1
+  _value: Enemy

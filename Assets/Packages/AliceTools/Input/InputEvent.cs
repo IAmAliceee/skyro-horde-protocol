@@ -17,7 +17,7 @@ namespace AliceTools.Input
         {
             inputAction.action.Enable();
         }
-        
+
         public void Dispose()
         {
             foreach (var action in registeredInputs.Keys)
@@ -33,7 +33,8 @@ namespace AliceTools.Input
         {
             Started,
             Canceled,
-            Performed
+            Performed,
+            PerfAndCancel
         }
 
         public void Sub(Action<InputAction.CallbackContext> action, InputActionType type = InputActionType.Started)
@@ -74,17 +75,26 @@ namespace AliceTools.Input
                     else
                         inputAction.action.performed -= action;
                     break;
+
+                case InputActionType.PerfAndCancel:
+                    ModifySub(action, InputActionType.Performed, add);
+                    ModifySub(action, InputActionType.Canceled, add);
+                    break;
             }
         }
 
         public T ReadValue<T>() where T : struct => inputAction.action.ReadValue<T>();
+
+        public bool WasPressedThisFrame() => inputAction.action.WasPressedThisFrame();
+
+        public bool IsButton() => inputAction.action.type == UnityEngine.InputSystem.InputActionType.Button;
 
         public void Invoke()
         {
             throw new NotImplementedException("Input Events should not be Invoke-d");
         }
 
-        public void Sub(Action listener) => Sub(listener, InputActionType.Performed);
+        public void Sub(Action listener) => Sub(listener, InputActionType.PerfAndCancel);
 
         public void Sub(Action listener, InputActionType type)
         {

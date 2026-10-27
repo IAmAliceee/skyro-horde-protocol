@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 namespace AliceTools.Events
 {
+    [DefaultExecutionOrder(-50)]
     public class GameEventListener : EventBehaviour
     {
         [field: SerializeField] public GameEvent gameEvent { get; protected set; }

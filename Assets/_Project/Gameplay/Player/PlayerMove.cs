@@ -1,37 +1,38 @@
+using AliceTools.Events;
+using AliceTools.Input;
+using AliceTools.MonoBehaviours;
+using AliceTools.Variables;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace HordeProtocol.Gameplay.Player {
-    public class PlayerMove : MonoBehaviour
+    public class PlayerMove : EventBehaviour
     {
-        [SerializeField] private InputActionReference moveActionRef;
-        
-        [SerializeField] private float moveSpeed;
+        #region References
+        [Header("Variables")]
+        [SerializeField] private FloatVariable moveSpeed;
+
+        [Header("Unity References")]
         [SerializeField] private Transform playerT;
 
-        private InputAction moveAction => moveActionRef.action;
+        [Header("Inputs")]
+        [SerializeField] private InputEvent moveEvent;
+
+        [Header("Events")]
+        [SerializeField] private GameEvent OnStopMovement;
+        [SerializeField] private GameEvent OnResumeMovement;
+        #endregion
 
         private Vector3 lastMoveInput = Vector3.zero;
 
-
         private void OnEnable() {
-            moveAction.Enable();
-
-            moveAction.performed += OnMoveAction;
-            moveAction.canceled += OnMoveAction;
-        }
-
-        private void OnDisable() {
-            moveAction.performed -= OnMoveAction;
-            moveAction.canceled -= OnMoveAction;
-
-            moveAction.Disable();
+            RegEvent(        (moveEvent, () => lastMoveInput = moveEvent.ReadValue<Vector2>()),
+                        (OnStopMovement, () => enabled = false),
+                      (OnResumeMovement, () => enabled = true)
+            );
         }
 
         private void Update() {
             playerT.position += moveSpeed * Time.deltaTime * lastMoveInput;
         }
-
-        private void OnMoveAction(InputAction.CallbackContext ctx) => lastMoveInput = ctx.ReadValue<Vector2>();
     }
 }
