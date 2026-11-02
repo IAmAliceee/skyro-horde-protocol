@@ -12,7 +12,7 @@ namespace HordeProtocol.Gameplay.Player
 
         private void OnCollisionEnter2D(Collision2D col)
         {
-            if (col.collider.tag != enemyTag || !col.collider.TryGetComponent<IDamageable>(out var enemyHealth))
+            if (!col.collider.CompareTag(enemyTag) || col.collider.TryGetComponent<IEnemyHealth>(out var enemyHealth))
                 return;
             
             enemyHealth.Damage(bulletDamage);
