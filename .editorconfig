@@ -9,6 +9,8 @@ trim_trailing_whitespace = true
 [*.cs]
 indent_style = space
 indent_size = 4
+dotnet_diagnostic.RCS1169.severity = silent
+dotnet_diagnostic.IDE0130.severity = silent
 
 [*.{json,asmdef,md,yml,yaml}]
 indent_style = space

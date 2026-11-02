@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8607783601721529623}
   - component: {fileID: 3905878702662107367}
   - component: {fileID: 1962690796064448921}
+  - component: {fileID: -3642364463202778671}
   m_Layer: 0
   m_Name: PF_Enemy
   m_TagString: Enemy
@@ -160,3 +161,16 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 1
+--- !u!114 &-3642364463202778671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420302252640942767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c890b3555491da3a87e1156c65c8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.Enemy.EnemyHealth
+  maxHealth: {fileID: -4925448622903131004, guid: f485e87d2755e13fd815e413e40115a7, type: 2}

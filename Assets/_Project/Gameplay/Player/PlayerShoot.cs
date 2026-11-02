@@ -6,6 +6,7 @@ using AliceTools.Input;
 using AliceTools.MonoBehaviours;
 using AliceTools.Variables;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace HordeProtocol.Gameplay.Player {
     public class PlayerShoot : CancellableEventBehaviour
@@ -28,6 +29,8 @@ namespace HordeProtocol.Gameplay.Player {
         bool isShooting;
         protected override GameEvent OnStopCancellable => OnStopShooting;
 
+        private Camera cam;
+
         protected override void OnEnable() {
             base.OnEnable();
             if (!shootEvent.IsButton())
@@ -36,6 +39,7 @@ namespace HordeProtocol.Gameplay.Player {
             RegEvent(shootEvent, () => isShooting = shootEvent.WasPressedThisFrame());
             RegEvent(OnResumeShooting, OnResume);
 
+            cam = Camera.main;
             _ = ShootDelay();
         }
 
@@ -53,8 +57,24 @@ namespace HordeProtocol.Gameplay.Player {
                 bool waitUntilShooting() => isShooting;
                 while (true) {
                     await AwaitableExtensions.WaitUntil(waitUntilShooting, token);
-                    var bulletRb = await InstantiateAsync(bulletPrefab, null, transform.position, transform.rotation).ToAwaitableAsync(token);
-                    bulletRb.linearVelocity = (Vector2)bulletRb.transform.right * bulletSpeed;
+
+                    Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+                    mouseScreenPos.z = Mathf.Abs(cam.transform.position.z);
+
+                    var mouseWorldPos = cam.ScreenToWorldPoint(mouseScreenPos);
+                    mouseWorldPos.z = 0f;
+
+                    var bulletDir = ((Vector2)mouseWorldPos - (Vector2)transform.position).normalized;
+
+                    var bulletRb = await InstantiateAsync(
+                        bulletPrefab,
+                        null,
+                        transform.position,
+                        Quaternion.identity
+                        ).ToAwaitableAsync();
+
+                    bulletRb.linearVelocity = bulletDir * bulletSpeed;
+
                     await Awaitable.WaitForSecondsAsync(shootCooldown, token);
                 }
             } catch (OperationCanceledException) { }
