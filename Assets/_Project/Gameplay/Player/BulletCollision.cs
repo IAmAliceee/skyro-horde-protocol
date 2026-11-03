@@ -14,7 +14,7 @@ namespace HordeProtocol.Gameplay.Player
         {
             if (col.collider.tag != enemyTag || !col.collider.TryGetComponent<IDamageable>(out var enemyHealth))
                 return;
-            
+
             enemyHealth.Damage(bulletDamage);
             if(shouldDestroyItself) Destroy(gameObject);
         }

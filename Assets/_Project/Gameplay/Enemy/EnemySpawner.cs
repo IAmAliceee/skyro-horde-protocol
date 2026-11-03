@@ -20,7 +20,7 @@ namespace HordeProtocol.Gameplay.Enemy
                 enemy.enabled = true;
                 enemy.transform.position = transform.position;
 
-                await Awaitable.WaitForSecondsAsync(spawnDelay);
+                await Awaitable.WaitForSecondsAsync(spawnDelay, destroyCancellationToken);
             }
 
         }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8740967518403767962}
   - component: {fileID: 8545810980500006422}
   - component: {fileID: 7018716957407375019}
+  - component: {fileID: -9162193439127142300}
   m_Layer: 0
   m_Name: PF_Bullet
   m_TagString: Untagged
@@ -172,3 +173,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-9162193439127142300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578810737904476856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5abe0a29f2e36ac880fcabe9e9718b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.Enemy.BulletDestroy

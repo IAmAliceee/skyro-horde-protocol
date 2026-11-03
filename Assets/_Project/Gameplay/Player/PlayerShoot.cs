@@ -4,6 +4,7 @@ using AliceTools.Events;
 using AliceTools.Extensions;
 using AliceTools.Input;
 using AliceTools.MonoBehaviours;
+using AliceTools.Pool;
 using AliceTools.Variables;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,6 +31,7 @@ namespace HordeProtocol.Gameplay.Player {
         protected override GameEvent OnStopCancellable => OnStopShooting;
 
         private Camera cam;
+        private RuntimePool<Rigidbody2D> bulletPool;
 
         protected override void OnEnable() {
             base.OnEnable();
@@ -40,6 +42,7 @@ namespace HordeProtocol.Gameplay.Player {
             RegEvent(OnResumeShooting, OnResume);
 
             cam = Camera.main;
+            bulletPool = new(bulletPrefab, 6);
             _ = ShootDelay();
         }
 
@@ -66,12 +69,9 @@ namespace HordeProtocol.Gameplay.Player {
 
                     var bulletDir = ((Vector2)mouseWorldPos - (Vector2)transform.position).normalized;
 
-                    var bulletRb = await InstantiateAsync(
-                        bulletPrefab,
-                        null,
-                        transform.position,
-                        Quaternion.identity
-                        ).ToAwaitableAsync();
+                    var bulletRb = bulletPool.Get();
+                    bulletRb.transform.position = transform.position;
+                    bulletRb.gameObject.SetActive(true);
 
                     bulletRb.linearVelocity = bulletDir * bulletSpeed;
 
