@@ -5,7 +5,7 @@ using AliceTools.Variables;
 using UnityEngine;
 
 namespace HordeProtocol.Gameplay.Player {
-    public class PlayerMove : EventBehaviour
+    public class PlayerMove : EventSingleton<PlayerMove>
     {
         #region References
         [Header("Variables")]

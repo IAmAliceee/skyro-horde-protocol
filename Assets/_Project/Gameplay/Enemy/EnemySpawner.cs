@@ -1,3 +1,4 @@
+using System.Collections;
 using AliceTools.Pool;
 using UnityEngine;
 
@@ -6,11 +7,18 @@ namespace HordeProtocol.Gameplay.Enemy
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField, Min(0f)] private float spawnDelay;
-        [SerializeField] private EnemyMove enemyPrefab;
+        [SerializeField, Min(0f)] private int spawnCount;
+        [SerializeField] private EnemyRuntime enemyPrefab;
 
-        private RuntimePool<EnemyMove> enemies;
+        private RuntimePool<EnemyRuntime> enemies;
 
-        private async void Start()
+        private int spawnCountCurrent;
+
+        private void OnDestroy() => enemies.Dispose();
+
+        private void Start() => StartCoroutine(StartIE());
+
+        private IEnumerator StartIE()
         {
             enemies = new(enemyPrefab);
 
@@ -19,8 +27,9 @@ namespace HordeProtocol.Gameplay.Enemy
                 var enemy = enemies.Get();
                 enemy.enabled = true;
                 enemy.transform.position = transform.position;
-
-                await Awaitable.WaitForSecondsAsync(spawnDelay, destroyCancellationToken);
+                spawnCountCurrent++;
+                if(spawnCount > 0 && spawnCountCurrent >= spawnCount) break;
+                yield return new WaitForSeconds(spawnDelay);
             }
 
         }
