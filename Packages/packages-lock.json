@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.gustavopsantos.reflex": {
+      "version": "https://github.com/gustavopsantos/reflex.git?path=/Assets/Reflex/",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "70c9b4e46a3b08ee8a13a61b71bb264f14446a7c"
+    },
     "com.unity.2d.animation": {
       "version": "13.0.6",
       "depth": 0,
@@ -336,13 +343,6 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
-    },
-    "jp.hadashikick.vcontainer": {
-      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#5401e5a7ebc4980a2b82141ffc26391a6547edd7",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "5401e5a7ebc4980a2b82141ffc26391a6547edd7"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
