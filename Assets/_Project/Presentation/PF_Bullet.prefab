@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 9023959540493878053}
   - component: {fileID: 1827545962179199343}
   - component: {fileID: 8740967518403767962}
-  - component: {fileID: 8545810980500006422}
   - component: {fileID: 7018716957407375019}
-  - component: {fileID: -9162193439127142300}
+  - component: {fileID: -548454761865347811}
+  - component: {fileID: 2551460173514743693}
   m_Layer: 0
   m_Name: PF_Bullet
   m_TagString: Untagged
@@ -131,21 +131,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &8545810980500006422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8578810737904476856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 277ed39750c331dd6b7c2e67c8041604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.Player.BulletCollision
-  enemyTag: {fileID: 7894475745764355504, guid: 6b685d7e33bbcb6129c9910906d73fcd, type: 2}
-  bulletDamage: {fileID: 3665395047884635376, guid: edef464d21f2f04678c1b58868aa8b4e, type: 2}
-  shouldDestroyItself: {fileID: 1612424365944294917, guid: 6c6f3f341d147224e9b61a0e5de86b46, type: 2}
 --- !u!50 &7018716957407375019
 Rigidbody2D:
   serializedVersion: 5
@@ -173,7 +158,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-9162193439127142300
+--- !u!114 &-548454761865347811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578810737904476856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277ed39750c331dd6b7c2e67c8041604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.Player.BulletCollision
+  enemyTag: {fileID: 7894475745764355504, guid: 6b685d7e33bbcb6129c9910906d73fcd, type: 2}
+  bulletDamage: {fileID: 4620634115571679196, guid: 6c6f3f341d147224e9b61a0e5de86b46, type: 2}
+  shouldDestroyItself: {fileID: 1612424365944294917, guid: 6c6f3f341d147224e9b61a0e5de86b46, type: 2}
+--- !u!114 &2551460173514743693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

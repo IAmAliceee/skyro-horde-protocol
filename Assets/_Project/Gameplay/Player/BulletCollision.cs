@@ -1,5 +1,5 @@
 using AliceTools.Variables;
-using HordeProtocol.Gameplay.Enemy;
+using HordeProtocol.Gameplay.Interfaces;
 using UnityEngine;
 
 namespace HordeProtocol.Gameplay.Player
@@ -12,7 +12,7 @@ namespace HordeProtocol.Gameplay.Player
 
         private void OnCollisionEnter2D(Collision2D col)
         {
-            if (!col.collider.CompareTag(enemyTag) || col.collider.TryGetComponent<IEnemyHealth>(out var enemyHealth))
+            if (col.collider.tag != enemyTag || !col.collider.TryGetComponent<IDamageable>(out var enemyHealth))
                 return;
 
             enemyHealth.Damage(bulletDamage);

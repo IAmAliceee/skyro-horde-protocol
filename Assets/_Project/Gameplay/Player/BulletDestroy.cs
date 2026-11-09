@@ -20,9 +20,11 @@ namespace HordeProtocol.Gameplay.Enemy
             destroyAction ??= action;
         }
 
-        private async void OnEnable()
+        private void OnEnable() => StartCoroutine(OnEnableIE());
+
+        private IEnumerator OnEnableIE()
         {
-            await Awaitable.WaitForSecondsAsync(5f, destroyCancellationToken);
+            yield return new WaitForSeconds(5f);
             Destroy();
         }
     }

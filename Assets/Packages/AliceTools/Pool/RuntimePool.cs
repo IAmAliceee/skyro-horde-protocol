@@ -54,9 +54,7 @@ namespace AliceTools.Pool
 
         protected void DisableObject(T obj)
         {
-            if(obj is MonoBehaviour mb)
-                mb.enabled = false;
-            else if (obj is IDisposable disp)
+            if (obj is IDisposable disp)
                 disp.Dispose();
             else if (obj is Component comp)
                 comp.gameObject.SetActive(false);

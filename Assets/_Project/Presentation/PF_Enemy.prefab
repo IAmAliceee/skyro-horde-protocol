@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 121351246162767502}
   - component: {fileID: 8607783601721529623}
-  - component: {fileID: 3905878702662107367}
   - component: {fileID: 1962690796064448921}
-  - component: {fileID: 804639645574992672}
+  - component: {fileID: 7912797090263651806}
+  - component: {fileID: 2168531939070609587}
   m_Layer: 0
   m_Name: PF_Enemy
   m_TagString: Enemy
@@ -94,23 +94,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &3905878702662107367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7420302252640942767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6da0177c60f064b78fa203cc445a08b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.EnemyMove
-  targetToFollow: {fileID: 0}
-  selfTransform: {fileID: 121351246162767502}
-  moveSpeed: {fileID: 519676917878463398, guid: f485e87d2755e13fd815e413e40115a7, type: 2}
-  OnStopMovement: {fileID: 11400000, guid: 4e59e4e01dd2f283795a28ca88367bc1, type: 2}
-  OnResumeMovement: {fileID: 11400000, guid: 83c08731cc35c40dca16245ddced5bc4, type: 2}
 --- !u!60 &1962690796064448921
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -161,7 +144,7 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 1
---- !u!114 &804639645574992672
+--- !u!114 &7912797090263651806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,7 +153,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 7420302252640942767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036eb9f51ea40c020a07a6373439e3b5, type: 3}
+  m_Script: {fileID: 11500000, guid: ac1cd7d265ef808bd8e1f8e5cff1c7df, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.Enemy.EnemyHealth
-  maxHealth: {fileID: -1835231973455433778, guid: f485e87d2755e13fd815e413e40115a7, type: 2}
+  m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.Enemy.EnemyRuntime
+  enemyType: {fileID: 11400000, guid: ae4ce38e213efe566a6f4ca0158926a0, type: 2}
+  OnStopMovement: {fileID: 11400000, guid: 4e59e4e01dd2f283795a28ca88367bc1, type: 2}
+  OnResumeMovement: {fileID: 11400000, guid: 83c08731cc35c40dca16245ddced5bc4, type: 2}
+--- !u!50 &2168531939070609587
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420302252640942767}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
